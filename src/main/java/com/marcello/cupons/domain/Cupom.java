@@ -52,7 +52,7 @@ public class Cupom {
 
         Cupom c = new Cupom();
         c.id = UUID.randomUUID();
-        c.code = CodigoCupom.of(codeBruto); // sanitiza + valida 6
+        c.code = CodigoCupom.of(codeBruto); 
         c.description = description.trim();
         c.discountValue = discountValue;
         c.expirationDate = expirationDate;
@@ -82,8 +82,28 @@ public class Cupom {
     public boolean isPublished() { return published; }
     public LocalDateTime getDeletedAt() { return deletedAt; }
 
-    // setters controlados (apenas para rehidratar do banco)
-    void setId(UUID id) { this.id = id; }
-    void setDeletedAt(LocalDateTime deletedAt) { this.deletedAt = deletedAt; }
+    /**
+ * reconstroi o cupom vindo do banco (sem validar regras novamente).
+ * usado apenas pela camada de persistência.
+ */
+public static Cupom reconstituir(
+        UUID id,
+        String code,
+        String description,
+        BigDecimal discountValue,
+        LocalDate expirationDate,
+        boolean published,
+        LocalDateTime deletedAt
+) {
+    Cupom c = new Cupom();
+    c.id = id;
+    c.code = CodigoCupom.of(code);
+    c.description = description;
+    c.discountValue = discountValue;
+    c.expirationDate = expirationDate;
+    c.published = published;
+    c.deletedAt = deletedAt;
+    return c;
+}
 
 }
