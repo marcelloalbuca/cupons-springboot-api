@@ -7,14 +7,6 @@ import java.time.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Testes do domínio:
- * - Sem Spring
- * - Sem banco
- * - Sem controller
- *
- * Aqui você prova “regras encapsuladas e testáveis”.
- */
 class CupomDominioTest {
 
     private final Clock clockFixo = Clock.fixed(
