@@ -2,11 +2,8 @@ package com.marcello.cupons.infra.persistence;
 
 import com.marcello.cupons.domain.Cupom;
 
-import java.time.Clock;
+ // converter Cupom (domínio) <-> CupomJpaEntity (persistência).
 
-/**
- * Mapper simples para converter Cupom (domínio) <-> CupomJpaEntity (persistência).
- */
 public final class CupomMapper {
 
    private CupomMapper() {}
