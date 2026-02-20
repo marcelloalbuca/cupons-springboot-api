@@ -21,14 +21,14 @@ public final class CupomMapper {
     }
 
     public static Cupom toDomain(CupomJpaEntity e) {
-        return Cupom.reconstituir(
-                e.getId(),
-                e.getCode(),
-                e.getDescription(),
-                e.getDiscountValue(),
-                e.getExpirationDate(),
-                e.isPublished(),
-                e.getDeletedAt()
+    return Cupom.reconstituir(
+            e.getId(),
+            e.getCode(),
+            e.getDescription(),
+            e.getDiscountValue(),
+            e.getExpirationDate(),
+            e.isPublished(),
+            e.getDeletedAt()
         );
     }
 }
